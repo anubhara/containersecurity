@@ -42,9 +42,7 @@ COPY --from=builder /opt/venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 # Copy project files
-COPY --chown=appuser:appgroup ./src .
-
-RUN pip install --no-cache-dir flask==2.3.2 werkzeug==2.3.3
+COPY --chown=appuser:appgroup ./src . 
 
 # Expose port the app runs on
 EXPOSE 5000
